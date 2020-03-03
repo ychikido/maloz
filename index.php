@@ -31,7 +31,47 @@
         // print_r($_SESSION);
     // }
 ?>
-<h1>welkom</h1>
+
 </body>
 
+</html>
+
+<html>
+<head>
+<title>log in</title>
+<link rel="stylesheet" href="inc/style.css" type="text/css">
+<script language="">
+<!--
+function cursor(){document.login.name.focus();}
+// -->
+</script>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" onLoad=cursor()>
+<img src="login.png" width="308" height="82">
+<blockquote>
+  <p><b>inloggen</b></p>
+<table border="0" cellspacing="0" cellpadding="2">
+  <form action="login.php" method="post" name=login>
+    <tr>
+      <td>gebruiksnaam</td>
+      <td>
+        <input type="Text" name="name" size="15">
+      </td>
+    </tr>
+    <tr>
+      <td height="6">wachtwoord</td>
+      <td height="6">
+        <input type="password" name="password" size="15">
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <input type="Submit" name="submit" value="Enter">
+      </td>
+    </tr>
+  </form>
+</table>
+</blockquote>
+</body>
 </html>
