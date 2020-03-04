@@ -27,9 +27,9 @@
       if(!empty($_SESSION['voornaam'])){
         echo $welkom;
         echo ucfirst($_SESSION['voornaam']);
-    } else {
-        echo '';
-        print_r($_SESSION);
+    } //else {
+        //echo '';
+        //print_r($_SESSION);
      }
 ?>
 
