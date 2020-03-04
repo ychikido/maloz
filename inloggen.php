@@ -39,6 +39,7 @@ function cursor(){document.login.name.focus();}
 </body>
 </html>
 <?php
+
 include("inc/config.php");
 $connection = mysql_connect($hostname, $user, $pass) or die ("Unable to connect!");
 $query = "SELECT * FROM clients WHERE name = '$name' AND password = PASSWORD('$password')";
