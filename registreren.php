@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php include(''); ?>
+<?php // include(''); ?>
 <html lang="nl">
 	<head>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -16,23 +16,19 @@
 	<div class="content">
 	<form name="registeren" class="form" method="POST" >
         <h1 id="pagina_titel">Registreren</h1>
-		<input type="text" required name="first" placeholder="Voornaam"/>
+		<input type="text" required name="voornaam" placeholder="Voornaam"/>
         <br><br>
-		<input type="text" required name="last" placeholder="Achternaam"/>
+		<input type="text" name="tussenvoegsel" placeholder="Tussenvoegsel"/>
         <br><br>
-		<input type="text" required name="street" placeholder="Straat"/>
+		<input type="text" required name="achternaam" placeholder="Achternaam"/>
         <br><br>
-		<input type="number" required name="number" placeholder="Huisnummer"/>
+		<input type="text" required name="nummer" placeholder="Telefoonnummer"/>
         <br><br>
-		<input type="text" required name="zip" placeholder="Postcode"/>
+		<input type="text" required name="functie" placeholder="Functie"/>
         <br><br>
-		<input type="text" required name="city" placeholder="Stad"/>
+		<input type="text" required name="gebruikersnaam" placeholder="Gebruikersnaam"/>
         <br><br>
-        <input type="text" required name="country" placeholder="Land"/>
-        <br><br>
-		<input type="email" required name="email" placeholder="E-mail"/>
-        <br><br>
-		<input type="password" required name="password" placeholder="Wachtwoord"/>
+		<input type="password" required name="wachtwoord" placeholder="Wachtwoord"/>
 		<br><br>
 		<div class="icon_container">
 		
@@ -46,44 +42,41 @@ include("db.php");
 require_once('db.php');
 if(isset($_POST["submit"])){
 	$melding ="";
-    $first = htmlspecialchars($_POST['first']);
-    $last = htmlspecialchars($_POST['last']);
-    $email = htmlspecialchars($_POST['email']);
-    $city = htmlspecialchars($_POST['city']);
-    $street = htmlspecialchars($_POST['street']);
-    $zip = htmlspecialchars($_POST['zip']);
-    $number = htmlspecialchars($_POST['number']);
-    $country = htmlspecialchars($_POST['country']);
-    $username = $email;
-    $password = htmlspecialchars($_POST['password']);
-    $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+    $voornaam = htmlspecialchars($_POST['voornaam']);
+    $tussenvoegsel = htmlspecialchars($_POST['tussenvoegsel']);
+    $achternaam = htmlspecialchars($_POST['achternaam']);
+    $nummer = htmlspecialchars($_POST['nummer']);
+    $functie = htmlspecialchars($_POST['functie']);
+    $gebruikersnaam = htmlspecialchars($_POST['gebruikersnaam']);
+    $wachtwoord = htmlspecialchars($_POST['wachtwoord']);
+    $passwordHash = password_hash($wachtwoord, PASSWORD_DEFAULT);
 	
-	// Controleer of e-mail al bestaat (geen dubbele adressen)
-	$sql= "SELECT * FROM user WHERE email = ?";
+	// Controleer of gebruikersnaam al bestaat (geen dubbele gebruikersnaam)
+	$sql= "SELECT * FROM account WHERE gebruikersnaam = ?";
 	$stmt = $link1->prepare($sql);
-	$stmt->execute(array($email));
+	$stmt->execute(array($gebruikersnaam));
 	$resultaat = $stmt->fetch(PDO::FETCH_ASSOC);
 	if ($resultaat) {
-		$melding = "Dit e-mailadress is al geregisteerd";
+		$melding = "Gekozen gebruikersnaam is al in gebruik";
         print_r ($melding);
 	}else {
-		$sql = "INSERT INTO user (first_name, last_name, email, username, password, city, street, zip_code, house_number, country)
-                            VALUES ('$first','$last','$email','$email','$passwordHash','$city','$street','$zip','$number','$country')";
+        // , 
+        $date = date("Y-m-d");
+		$sql = "INSERT INTO account (idAccount, voornaam, tussenvoegsel, achternaam, telefoonnummer, functie, gebruikersnaam, wachtwoord, aangemaakt, laatste_login)
+                 VALUES (NULL,'$voornaam','$tussenvoegsel','$achternaam','$nummer','$functie','$gebruikersnaam','$passwordHash', '$date', '$date')";
 		$stmt= $link1->prepare($sql);
 		try {
 			$stmt->execute (array(
-			$first,
-			$last,
-			$email,
-			$city,
-			$street,
-			$zip,
-            $number,
-            $country,
-            $username,
+            NULL,
+			$voornaam,
+			$tussenvoegsel,
+			$achternaam,
+			$nummer,
+			$functie,
+			$gebruikersnaam,
 			$passwordHash,
-            0,
-            0)
+            $date,
+            $date)
             );
 			$melding = "Nieuw account aangemaakt.";
 		}catch(PDOException $e) {
@@ -92,8 +85,7 @@ if(isset($_POST["submit"])){
 		}
 		echo "<div id='melding'>".$melding."</div>";
 	}
-}
-        
+}     
 ?>       
 </body>
 </html>

@@ -23,9 +23,9 @@
 <?php   
       include ('db.php');
       $welkom = 'Welkom &nbsp;';
-      if(!empty($_SESSION['first_name'])){
+      if(!empty($_SESSION['voornaam'])){
         echo $welkom;
-        echo ucfirst($_SESSION['first_name']);
+        echo ucfirst($_SESSION['voornaam']);
     } // else {
         // echo '';
         // print_r($_SESSION);
