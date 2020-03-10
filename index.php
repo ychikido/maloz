@@ -21,14 +21,14 @@
                    <form action="" method="post" name="login">
                            <div class="form-group">
                               <label for="exampleInputEmail1">Gebruikersnaam</label>
-                              <input type="email" name="email"  class="form-control" id="email" aria-describedby="emailHelp" placeholder="Vul hier gebruikersnaam in">
+                              <input type="name" name="gebruikersnaam"  class="form-control" placeholder="Vul hier gebruikersnaam in">
                            </div>
                            <div class="form-group">
                               <label for="exampleInputEmail1">Wachtwoord</label>
-                              <input type="password" name="password" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Vul hier wachtwoord in">
+                              <input type="password" name="password"  class="form-control" placeholder="Vul hier wachtwoord in">
                            </div>
                            <div class="col-md-12 text-center ">
-                              <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Login</button>
+                              <button type="submit" name="submit" class="btn btn-block mybtn btn-primary tx-tfm">Login</button>
                            </div>
                            <div class="col-md-12 ">
                               <div class="login-or">
@@ -45,5 +45,40 @@
 			</div>
 		</div>
       </div>   
-         
+
+<?php
+include('db.php');
+require_once('db.php');
+if(!empty($_POST['submit'])){
+   $gebruikersnaam = mysqli_real_escape_string($link,$_POST['gebruikersnaam']);
+   $wachtwoord = mysqli_real_escape_string($link,$_POST['wachtwoord']);
+   
+   // echo "$gebruikersnaam $wachtwoord";
+   
+   // $wachtwoord = password_hash($wachtwoord, PASSWORD_DEFAULT);
+   $query = "SELECT * FROM account WHERE gebruikersnaam = '$gebruikersnaam'";
+   // wachtwoord = '$wachtwoord' AND 
+   // echo '<br>' . $query . '<br>';
+   $result = mysqli_query($link, $query);
+   
+   $nr_rows = mysqli_num_rows($result);
+   // echo $nr_rows;
+   
+   if($nr_rows == 1){
+      $row = mysqli_fetch_assoc($result);
+      echo '<br>' . $row["password"] . '<br>';
+      if (password_verify($wachtwoord , $row["password"])) {
+         echo 'Password is valid!';
+         $_SESSION['voornaam'] = $row['voornaam'];
+         // echo '<script>window.location.href = "logged_in.php"</script>;';  
+                 echo '<script>window.location.href = "home.php"</script>;';                           
+      } else {
+         echo 'Invalid password.';
+      }
+   } else {
+      //error
+   }
+}
+?>
 </body>
+</html>
