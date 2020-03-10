@@ -13,7 +13,6 @@
 		<link href="style.css" rel="stylesheet" style="text/css">
         <script src="bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
 		<title>MaLoz - Registreren</title>
-		<link rel="stylesheet" href="" />
     </head>
 	<body>
     <div class="container">
@@ -46,7 +45,7 @@
 						   <div class="form-group">
                               <label for="exampleInputEmail1">Functie</label><br>
 							  <select id="functie" class="form-control" required name="functie">
-							  <option value="" disabled selected>Kies een functie</option>
+							  <option value="" disabled selected>Kies hier een functie</option>
     						  <option value="Beheerder">Beheerder</option>
 							  <option value="Gebruiker">Gebruiker</option>
 							  <option value="Eerstelijns">Eerstelijns</option>
@@ -67,8 +66,12 @@
                            </div>
                            <div class="col-md-12 ">
                               <div class="login-or">
-                                 <hr class="hr-or">
+								 <hr class="hr-or">
+								 <span class="span-or">of</span>
                               </div>
+                           </div>
+                           <div class="form-group">
+                              <p class="text-center">Heeft u al een account? <a href="/maloz/index.php" id="signup">Login</a></p>
                            </div>
                         </form>
 				</div>
