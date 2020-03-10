@@ -29,31 +29,38 @@
                    <form action="" method="post" name="Registreren">
                            <div class="form-group">
                               <label for="exampleInputEmail1">Voornaam</label>
-                              <input type="name" required name="voornaam"  class="form-control" id="email" placeholder="Vul hier gebruikersnaam in">
+                              <input type="name" required name="voornaam" class="form-control" id="email" placeholder="Vul hier gebruikersnaam in">
                            </div>
                            <div class="form-group">
                               <label for="exampleInputEmail1">Tussenvoegsel</label>
-                              <input type="name" name="tussenvoegsel" id="password"  class="form-control" placeholder="Vul hier tussenvoegsel in">
+                              <input type="name" name="tussenvoegsel" class="form-control" placeholder="Vul hier tussenvoegsel in">
                            </div>
 						   <div class="form-group">
                               <label for="exampleInputEmail1">Achternaam</label>
-                              <input type="name" required name="achternaam" id="password"  class="form-control" placeholder="Vul hier achternaam in">
+                              <input type="name" required name="achternaam" class="form-control" placeholder="Vul hier achternaam in">
                            </div>
 						   <div class="form-group">
                               <label for="exampleInputEmail1">Telefoonnummer</label>
-                              <input type="number" required name="nummer" id="password"  class="form-control" placeholder="Vul hier telefoonnummer in">
+                              <input type="text" required name="nummer" class="form-control" placeholder="Vul hier telefoonnummer in">
                            </div>
 						   <div class="form-group">
-                              <label for="exampleInputEmail1">Functie</label>
-                              <input type="name" required name="functie" id="password"  class="form-control" placeholder="Vul hier functie in">
+                              <label for="exampleInputEmail1">Functie</label><br>
+							  <select id="functie" class="form-control" required name="functie">
+							  <option value="" disabled selected>Kies een functie</option>
+    						  <option value="Beheerder">Beheerder</option>
+							  <option value="Gebruiker">Gebruiker</option>
+							  <option value="Eerstelijns">Eerstelijns</option>
+							  <option value="Tweedelijns">Tweedelijns</option>
+							  <option value="Derdelijns">Derdelijns</option>
+							  </select>
                            </div>
 						   <div class="form-group">
                               <label for="exampleInputEmail1">Gebruikersnaam</label>
-                              <input type="name" required name="gebruikersnaam" id="password"  class="form-control" placeholder="Vul hier gebruikersnaam in">
+                              <input type="name" required name="gebruikersnaam" class="form-control" placeholder="Vul hier gebruikersnaam in">
                            </div>
 						   <div class="form-group">
                               <label for="exampleInputEmail1">Wachtwoord</label>
-                              <input type="password" required name="wachtwoord" id="password"  class="form-control" placeholder="Vul hier wachtwoord in">
+                              <input type="password" required name="wachtwoord" class="form-control" placeholder="Vul hier wachtwoord in">
                            </div>
                            <div class="col-md-12 text-center ">
                               <button class="btn btn-block mybtn btn-primary tx-tfm" type="submit" class="icon" id="submit" name="submit" value="Submit">Registreer</button>
