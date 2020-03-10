@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<?php // include(''); ?>
 <html lang="nl">
 	<head>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -8,35 +7,68 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
+		<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<link href="style.css" rel="stylesheet" style="text/css">
         <script src="bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
 		<title>MaLoz - Registreren</title>
 		<link rel="stylesheet" href="" />
     </head>
 	<body>
-	<div class="content">
-	<form name="registeren" class="form" method="POST" >
-        <h1 id="pagina_titel">Registreren</h1>
-		<input type="text" required name="voornaam" placeholder="Voornaam"/>
-        <br><br>
-		<input type="text" name="tussenvoegsel" placeholder="Tussenvoegsel"/>
-        <br><br>
-		<input type="text" required name="achternaam" placeholder="Achternaam"/>
-        <br><br>
-		<input type="text" required name="nummer" placeholder="Telefoonnummer"/>
-        <br><br>
-		<input type="text" required name="functie" placeholder="Functie"/>
-        <br><br>
-		<input type="text" required name="gebruikersnaam" placeholder="Gebruikersnaam"/>
-        <br><br>
-		<input type="password" required name="wachtwoord" placeholder="Wachtwoord"/>
-		<br><br>
-		<div class="icon_container">
-		
-        <input class="btn btn-outline-success my-2 my-sm-0" type="submit" class="icon" id="submit" name="submit" value="Submit"/>
+    <div class="container">
+        <div class="row">
+			<div class="col-md-5 mx-auto">
+			<div id="first">
+				<div class="myform form ">
+					 <div class="logo mb-3">
+						 <div class="col-md-12 text-center">
+							<h1>Registreren</h1>
+						 </div>
+					</div>
+                   <form action="" method="post" name="Registreren">
+                           <div class="form-group">
+                              <label for="exampleInputEmail1">Voornaam</label>
+                              <input type="name" required name="voornaam"  class="form-control" id="email" placeholder="Vul hier gebruikersnaam in">
+                           </div>
+                           <div class="form-group">
+                              <label for="exampleInputEmail1">Tussenvoegsel</label>
+                              <input type="name" name="tussenvoegsel" id="password"  class="form-control" placeholder="Vul hier tussenvoegsel in">
+                           </div>
+						   <div class="form-group">
+                              <label for="exampleInputEmail1">Achternaam</label>
+                              <input type="name" required name="achternaam" id="password"  class="form-control" placeholder="Vul hier achternaam in">
+                           </div>
+						   <div class="form-group">
+                              <label for="exampleInputEmail1">Telefoonnummer</label>
+                              <input type="number" required name="nummer" id="password"  class="form-control" placeholder="Vul hier telefoonnummer in">
+                           </div>
+						   <div class="form-group">
+                              <label for="exampleInputEmail1">Functie</label>
+                              <input type="name" required name="functie" id="password"  class="form-control" placeholder="Vul hier functie in">
+                           </div>
+						   <div class="form-group">
+                              <label for="exampleInputEmail1">Gebruikersnaam</label>
+                              <input type="name" required name="gebruikersnaam" id="password"  class="form-control" placeholder="Vul hier gebruikersnaam in">
+                           </div>
+						   <div class="form-group">
+                              <label for="exampleInputEmail1">Wachtwoord</label>
+                              <input type="password" required name="wachtwoord" id="password"  class="form-control" placeholder="Vul hier wachtwoord in">
+                           </div>
+                           <div class="col-md-12 text-center ">
+                              <button class="btn btn-block mybtn btn-primary tx-tfm" type="submit" class="icon" id="submit" name="submit" value="Submit">Registreer</button>
+                           </div>
+                           <div class="col-md-12 ">
+                              <div class="login-or">
+                                 <hr class="hr-or">
+                              </div>
+                           </div>
+                        </form>
+				</div>
+			</div>
 		</div>
-		<a class="btn btn-outline-danger my-2 my-sm-0" href="index.php">Back</a>
-	</form>
-	</div>
+      </div>
+
 <?php 
 include("db.php");
 require_once('db.php');
